@@ -1,0 +1,9 @@
+*{
+    font-family:sans-serif;
+    margin:0;
+}
+body{padding: 5px;}
+button{
+    height: 40px;
+    width: 200px;
+}

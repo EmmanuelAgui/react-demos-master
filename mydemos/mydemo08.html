@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mydemo08</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        var MyInteract=React.createClass({
+           getInitialState(){
+               return {value:'Hello!'};
+           },
+
+           handleChange(event){
+               this.setState({value:event.target.value});
+           },
+            render(){
+               var value=this.state.value;
+               return(
+                  <div>
+                      <input type="text" value={value} onChange={this.handleChange}/>
+                      <p>{value}</p>
+                  </div>
+               );
+            }
+        });
+
+        ReactDOM.render(<MyInteract/>,document.getElementById('root'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mydemo10</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        var LifeCycle=React.createClass({
+             getInitialState(){
+                 return {
+                     opacity:1.0
+                 };
+             },
+
+            componentDidMount(){
+                 this.timer=setInterval(()=>{//function () {}.bind(this)
+                     var opacity=this.state.opacity;
+                     opacity-=.05;
+                     if(opacity<0.1){
+                         opacity=1.0;
+                     }
+                     this.setState({
+                        opacity:opacity
+                     });
+                 },100);
+            },
+
+            render(){
+                return(
+                  <div style={{opacity:this.state.opacity}}>
+                      Hello {this.props.name}
+                  </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+          <LifeCycle name="world"/>,
+            document.getElementById('root')
+        );
+
+    </script>
+</body>
+</html>

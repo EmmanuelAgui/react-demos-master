@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mydemo09</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        var NameForm=React.createClass({
+            getInitialState(){
+                return{value:'主啊，引导我～～～～'};
+            },
+
+            handleChange(event){
+                this.setState({value:event.target.value});
+            },
+
+            handleSumbit(event){
+                alert('A name was submitted: '+this.state.value);
+                event.preventDefault();
+            },
+
+            render(){
+                return(
+                        <form onSubmit={this.handleSumbit}>
+                            <label>
+                                Name:
+                                <textarea value={this.state.value} onChange={this.handleChange}/>
+                            </label>
+                            <input type="submit" value="Submit"/>
+                        </form>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <NameForm/>,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>
